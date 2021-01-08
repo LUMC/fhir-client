@@ -50,10 +50,16 @@ type Patient struct {
 	Contact              []PatientContactComponent       `bson:"contact,omitempty" json:"contact,omitempty"`
 	Animal               *PatientAnimalComponent         `bson:"animal,omitempty" json:"animal,omitempty"`
 	Communication        []PatientCommunicationComponent `bson:"communication,omitempty" json:"communication,omitempty"`
-	GeneralPractitioner  []Reference                     `bson:"generalPractitioner,omitempty" json:"generalPractitioner,omitempty"`
+	GeneralPractitioner  []PractitionerExtension                     `bson:"generalPractitioner,omitempty" json:"generalPractitioner,omitempty"`
 	ManagingOrganization *Reference                      `bson:"managingOrganization,omitempty" json:"managingOrganization,omitempty"`
 	Link                 []PatientLinkComponent          `bson:"link,omitempty" json:"link,omitempty"`
+	PreferredPharmacyOrganization []Extension	         `bson:"extension,omitempty" json:"extension,omitempty"`
 }
+
+type PractitionerExtension struct {
+	Extension []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
+}
+
 
 // Custom marshaller to add the resourceType property, as required by the specification
 func (resource *Patient) MarshalJSON() ([]byte, error) {

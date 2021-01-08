@@ -25,8 +25,10 @@ type Client struct {
 	logger  *logrus.Logger
 	common  service // Reuse a single struct instead of allocating one for each service on the heap.
 	// Services
-	Patients     *PatientsService
-	Observations *ObservationsService
+	Patients                  *PatientsService
+	Observations              *ObservationsService
+	Bundle                    *BundleService
+	MedicationAdministrations *MedicationAdministrationsService
 }
 
 type service struct {
@@ -112,6 +114,8 @@ func NewClient(baseClient *http.Client, vonkURL string) (fhir *Client, err error
 	// services for resources
 	fhir.Patients = (*PatientsService)(&fhir.common)
 	fhir.Observations = (*ObservationsService)(&fhir.common)
+	fhir.MedicationAdministrations = (*MedicationAdministrationsService)(&fhir.common)
+	fhir.Bundle = (*BundleService)(&fhir.common)
 
 	return fhir, nil
 }

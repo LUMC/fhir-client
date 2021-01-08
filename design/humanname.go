@@ -34,4 +34,15 @@ type HumanName struct {
 	Prefix []string `bson:"prefix,omitempty" json:"prefix,omitempty"`
 	Suffix []string `bson:"suffix,omitempty" json:"suffix,omitempty"`
 	Period *Period  `bson:"period,omitempty" json:"period,omitempty"`
+	Extension []Extension `bson:"extension,omitempty" json:"extension,omitempty"`
+	FamilyExtension FamilyExtension `bson:"_family,omitempty" json:"_family,omitempty"`
+	GivenExtension []GivenExtension `bson:"_given,omitempty" json:"_given,omitempty"`
+}
+
+type FamilyExtension struct {
+	Extension []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
+}
+
+type GivenExtension struct {
+	Extension []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
 }
