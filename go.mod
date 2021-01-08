@@ -1,4 +1,4 @@
-module lab.weave.nl/lumc/fhir-client
+module github.com/lumc/fhir-client
 
 go 1.15
 
