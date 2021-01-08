@@ -13,7 +13,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"lab.weave.nl/lumc/fhir-client/design"
+	"github.com/lumc/fhir-client/design"
 )
 
 const requestContentType = "application/json"

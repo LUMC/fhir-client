@@ -3,7 +3,7 @@ package fhirclient
 import (
 	"net/http"
 
-	"lab.weave.nl/lumc/fhir-client/design"
+	"github.com/lumc/fhir-client/design"
 )
 
 // ObservationsService instance operates over observation resources.
